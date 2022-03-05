@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import Contact from './Contact'
+import Sidebar from './Sidebar';
 
 
 // let contacts = [
@@ -36,23 +37,26 @@ function Contactslist({ contacts }) {
 
 
     return (
-        <div className='Contactslist'>
-            <div className="title">
-                <h1 ref={title}>Contacts</h1>
-                <h3>You currently have ({numberOfContacts}) contacts.</h3>
+        <div className="ContactslistContainer">
+            <Sidebar />
+            <div className='Contactslist'>
+
+                <div className="title">
+                    <h1 ref={title}>Contacts</h1>
+                    <h3>You currently have ({numberOfContacts}) contacts.</h3>
+                </div>
+
+                {contacts.map((info, index) => {
+                    return <Contact
+                        key={index}
+                        profilePic={photos[index].urls.thumb || 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpng.pngtree.com%2Felement_our%2F20200610%2Fourmid%2Fpngtree-character-default-avatar-image_2237203.jpg&f=1&nofb=1'}
+                        contactName={info.name}
+                        phone={info.phone}
+                        email={info.email}
+                    />
+                })}
+                {/* <Contact  /> */}
             </div>
-
-            {contacts.map((info, index) => {
-                return <Contact
-                    key={index}
-                    profilePic={photos[index].urls.thumb || 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpng.pngtree.com%2Felement_our%2F20200610%2Fourmid%2Fpngtree-character-default-avatar-image_2237203.jpg&f=1&nofb=1'}
-                    contactName={info.name}
-                    phone={info.phone}
-                    email={info.email}
-                />
-            })}
-
-            {/* <Contact  /> */}
         </div>
     )
 }

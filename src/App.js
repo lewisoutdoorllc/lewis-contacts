@@ -1,7 +1,7 @@
 import './App.css';
 // import Contact from './components/Contact';
 import Contactslist from './components/Contactslist';
-import Sidebar from './components/Sidebar';
+// import Sidebar from './components/Sidebar';
 import React, { useEffect, useState } from 'react';
 
 /* 
@@ -46,7 +46,7 @@ function App() {
 
   return (
     <div className="App">
-      <Sidebar />
+      {/* <Sidebar /> */}
       <Contactslist contacts={contacts} />
       {/* {contacts.map((contact, index) => {
         return <Contact 
