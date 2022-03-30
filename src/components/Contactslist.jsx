@@ -21,20 +21,11 @@ function Contactslist({ contacts }) {
 
     const [photos, setPhotos] = useState([]);
 
-    // useEffect(() => {
-    //     fetch('http://jsonplaceholder.typicode.com/photos/?_limit=10')
-    //         .then(response => response.json())
-    //         .then(data => setPhotos(data))
-    // }, [])
-    // const unSplash_Key = 'Z7PPKIo0t7zF80_uojAueb3ZV9ZZSOnmRNMoeuhUzXE';
-
     useEffect(() => {
         fetch(`https://api.unsplash.com/photos/?client_id=${process.env.REACT_APP_UNSPLASH_API_KEY}`)
             .then(response => response.json())
-            .then(data => setPhotos(data))
+            .then(response => setPhotos(response))
     }, [])
-
-
 
     return (
         <div className="ContactslistContainer">
